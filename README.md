@@ -22,14 +22,14 @@ you will get a text file out called pNcase_test.txt
 
 python -m pillowncase -h to get an idea of other options
 
-while I get proper documentation written up have a look through the tests directory to get some ideaa of ways to use it and options.
+while I get proper documentation written up have a look through the tests directory to get some idea of ways to use it and options.
 
 if you want to run the test suite, pull the project from git
 make sure you have nose installed (pip install nose) as well as pillow and cryptography.
 
-then run nosetests -v from the root fo the package directory it wil run through everything (and take some time)
+then run nosetests -v from the root of the package directory it will run through everything (and take some time)
 
-it's a bit slow at the moment as it's iterating over every pixel I need to get my head around nunpy and do it with that I think but it's fine as a working proof of concept now! 
+it's a bit slow at the moment as it's iterating over every pixel I need to get my head around numpy and do it with that I think but it's fine as a working proof of concept now! 
 
-# How to set up build environment
+# How to set up build environment and usage instructions
 coming soon!
