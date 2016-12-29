@@ -1,4 +1,6 @@
 # pillowncase
+I had some spare time over xmas and wanted to learn python in a bit more detail to the point of making something I could distribute, this is what I came up with, enjoy!
+
 Hide any data in an image
 While I get proper instructions up if you want to play
 (depends on pillow and cryptography should download automaticaly)
