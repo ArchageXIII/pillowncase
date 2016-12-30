@@ -8,14 +8,41 @@ import base64
 
 
 class ManipulateImage:
-	"""Core Pillow N Case class for storing and retreiving 
-	file data at a binary level in image files"""
+	"""
+	Store any file in any image as a png file.
+
+	:param channels: takes any combination of RGBA this defines what channels you want to store the file data in, if the source image does not have an alpha channel (A) one is created.
+	:param granularity: a value between 1 and 8, 1 is fine (large file size but little visual differance to origional image) 8 is complete replacement with the data to be hidden.
+	:param magic_header: header used internaly to see where the data starts, in most cases you wont ever need to change this.
+	:param verbose: for debugging leave at default unless you are having issues.
+	:param custom_channels: overides the channels parameter here you can specify exactly what bit distribution you want in the image expects text string in the format 1111 e.g. 2034 means 2 px in R, none in G, 3 in B and 4 in A
+	:param encrypt_data: default false, change to True if you want to encrypt the lead in header and data, uses a combination of XOR and Fernet, do some research see if that meets your needs, you will need the key to decrypt, a key is auto generated if not supplied.
+	:param key: if you have a key and want to encrypt using it put it here as a string e.g. you want to encode a lot of images with the same key, if it's left blank one will get generated if encrypt_data==True
+	
+	Example Usage with default values::
+
+		>>> from pillowncase import pncase
+		>>> pnc = pncase.ManipulateImage()
+		>>> pnc.encode()
+		::encode::
+		::Reading Datafile: pillowncase/pillowncase/files/pNcase_test.txt
+		::Resizing Image to fit to data
+		::Writing data to Image
+		::Progress: 100%
+		::Image 'pNcase.png'' created and saved
+		>>> pnc.decode(image_file='pNcase.png')
+		::Decode::
+		::Opened Imagefile: pNcase.png
+		::Reading data from Image
+		::Progress: 100%
+		::Found hidden file: pNcase_test.txt
+		::Sucesfuly read data
+		::All done Data Written to file: pNcase_test.txt
+	"""
 	
 
 	def __init__(self,channels="RGB",granularity=4,magic_header="XYZZY",verbose=0,custom_channels='',encrypt_data=False, key=''):
-
 		#set up common vars that will be used in the class
-
 		self.verbose = verbose
 
 		self._start = 0x02
@@ -112,9 +139,7 @@ class ManipulateImage:
 
 
 	def xor(self, data,key):
-		"""
-		Expects bytearray to be passed
-		"""
+
 		o = bytearray()
 		l = len(key)
 		kl = 0
@@ -146,6 +171,7 @@ class ManipulateImage:
 		return bin(elead_in_string[0])[2:].zfill(8) + bin(elead_in_string[1])[2:].zfill(8)
 
 	def get_key(self):
+		"""Returns the key as a string"""
 		return self.key.decode('utf-8')
 
 	def set_key(self,key):

@@ -9,7 +9,7 @@ config = {
     'url': 'https://github.com/ArchageXIII/pillowncase',
     'download_url': 'https://github.com/ArchageXIII/pillowncase/blob/master/dist/pillowncase-0.1.tar.gz',
     'author_email': 'mark.3dwards@gmail.com',
-    'version': '0.1',
+    'version': '0.2',
     'licence': 'GNU GPL',
     'install_requires': ['cryptography','pillow'],
     'packages': ['pillowncase'],
