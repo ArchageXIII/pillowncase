@@ -10,7 +10,7 @@ import sys
 
 
 
-verbose = 2
+verbose = 3
 
 def setup():
     print ("SETUP!")

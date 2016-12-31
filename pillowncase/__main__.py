@@ -15,7 +15,7 @@ def main():
 	parser.add_argument("-c", "--channels", type=str, help="Optional channel letter(s) to store data in (RGBA) alpha will be added for output if not present and specified default (%(default)s)", default='RGB')
 	parser.add_argument("-g", dest="granularity", help="Optional -g fine (larger file) -gggggggg replace picture (smaller file) default (-gggg) unless creating only data image when its (-gggggggg) by default",action="count")
 	parser.add_argument("-a", "--action", type=str, help="encode or decode, default encode, decode with no image file will error and exit", default="encode")
-	parser.add_argument("-v", "--verbose", help="Enable verbose output when running supports multiple -vvv beware adding too many!",action="count",default=0)
+	parser.add_argument("-v", "--verbose", help="Enable verbose output when running supports multiple -vvv beware adding too many!",action="count",default=1)
 	parser.add_argument("-m", "--magic_header", type=str, help="Magic headder that pNcase looks for to start decoding defaults to XYZZY if you change it you'll need to remember what it was to decode or be good reading binary, beware!", default="XYZZY")
 	parser.add_argument("-j", "--custom_channels", type=str, help="Overides granularity specify RGBA bit distribution manualy 0 means no bits in that channel e.g. 1240  means R=1, G=2, B=4, A=0", default="")
 	parser.add_argument("--do_not_resize_image", dest='resize_image', help="By default this will resize any image provided image to hide in to match data to be hidden, if you only have a small amount of data to hide you might not want to resize, use -g in this case to hide it well", action='store_false')
@@ -39,8 +39,12 @@ def main():
 	args = parser.parse_args()
 	#setting a default value on count adds to default value when one added.
 	if not args.granularity:
+
 		if len(args.image_file) == 0:
-			args.granularity = 8
+			if args.input_file.upper() not in ['SMALL_TEST','MEDIUM_TEST','LARGE_TEST']:
+				args.granularity = 8
+			else:
+				args.granularity = 4
 		else:
 			args.granularity = 4
 
@@ -54,7 +58,8 @@ def main():
 			args.output_file =""
 
 	if args.action == "decode" and len(args.image_file) == 0:
-		raise AttributeError("You need to provide an image to decode (-i image_file), type -h for help")
+		print("You need to provide an image to decode (-i image_file), type -h for help")
+		sys.exit()
 
 	try:
 		pnc = pncase.ManipulateImage(channels=args.channels,
@@ -67,8 +72,8 @@ def main():
 	except ValueError as err:
 		print (err)
 		print ("Exiting")
+		sys.exit()
 	if args.action == "encode":
-		
 		try:
 			pnc.encode(input_file=args.input_file,
 					   image_file=args.image_file,
@@ -78,6 +83,7 @@ def main():
 		except IOError as err:
 			print (err)
 			print ("Exiting")
+			sys.exit()
 	elif args.action == "decode":
 		try:
 			pnc.decode(image_file=args.image_file,

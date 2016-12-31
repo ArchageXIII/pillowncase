@@ -10,6 +10,7 @@ Welcome to pillowncase's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   intro
    pillowncase
 
 

@@ -11,7 +11,7 @@ import sys
 
 
 
-verbose = 2
+verbose = 3
 rs = getRandom_UTF_8.RandomUTF_8String()
 
 def setup():
@@ -26,7 +26,7 @@ def test_Header_CC_hide_random_data_create_image():
 
 	try:
 		input_file,input_file_name,input_file_hash = helper.create_data("hide_random_data_create_image")
-		mh = magic_header=rs.getStringRandomLength(40)
+		mh =rs.getStringRandomLength(40)
 		pnc = pncase.ManipulateImage(verbose=verbose,custom_channels=helper.get_random_channel_string(),magic_header=mh)
 		pnc.encode(input_file=input_file,output_file=input_file)
 		output_file_path = os.path.join("tmp_tests","output_test_data")
@@ -44,7 +44,7 @@ def test_Header_CC_e_hide_random_data_create_image():
 
 	try:
 		input_file,input_file_name,input_file_hash = helper.create_data("e_hide_random_data_create_image")
-		mh = magic_header=rs.getStringRandomLength(40)
+		mh = rs.getStringRandomLength(40)
 		pnc = pncase.ManipulateImage(encrypt_data=True,verbose=verbose,custom_channels=helper.get_random_channel_string(),magic_header=mh)
 		pnc.encode(input_file=input_file,output_file=input_file)
 		output_file_path = os.path.join("tmp_tests","output_test_data")
@@ -58,7 +58,7 @@ def test_Header_CC_e_hide_random_data_create_image():
 def test_Header_CC_hide_random_data_use_image():
 	try:
 		input_file,input_file_name,input_file_hash = helper.create_data("hide_random_data_use_image")
-		mh = magic_header=rs.getStringRandomLength(40)
+		mh = rs.getStringRandomLength(40)
 		pnc = pncase.ManipulateImage(verbose=verbose,custom_channels=helper.get_random_channel_string(),magic_header=mh)
 		pnc.encode(input_file=input_file,output_file=input_file,image_file=os.path.join("pillowncase","files","pNcase.png"))
 		output_file_path = os.path.join("tmp_tests","output_test_data")
@@ -73,7 +73,7 @@ def test_Header_CC_e_hide_random_data_use_image():
 
 	try:
 		input_file,input_file_name,input_file_hash = helper.create_data("e_hide_random_data_use_image")
-		mh = magic_header=rs.getStringRandomLength(40)
+		mh = rs.getStringRandomLength(40)
 		pnc = pncase.ManipulateImage(encrypt_data=True,verbose=verbose,custom_channels=helper.get_random_channel_string(),magic_header=mh)
 		pnc.encode(input_file=input_file,output_file=input_file,image_file=os.path.join("pillowncase","files","pNcase.png"))
 		output_file_path = os.path.join("tmp_tests","output_test_data")
