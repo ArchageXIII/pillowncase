@@ -23,10 +23,10 @@ class ManipulateImage:
 	:param bool encrypt_data: default False, change to True if you want to encrypt the lead in header and data, uses a
 		 combination of XOR and Fernet, do some research look at the code see if that meets your needs, you will need the key to decrypt,
 		 a key is auto generated if not supplied.  Don't forget you can encrypt your data to hide however you like outside of
-		 this code, it will just do a like for like binary read and stor of whatever file you point it at.
+		 this code, it will just do a like for like binary read and store of whatever file you point it at.
 	:param str key: if you have a key and want to encrypt using it put it here as a string e.g. you want to encode a lot of
 		images with the same key, if it's left blank one will get generated if encrypt_data=True.
-		See :py:decode for an example using encryption.
+		See :py:func:`~ManipulateImage.decode` for an example using encryption.
 	:raises ValueError: If input values provided are out of range
 	
 	Example usage::
@@ -179,8 +179,12 @@ class ManipulateImage:
 		return bin(elead_in_string[0])[2:].zfill(8) + bin(elead_in_string[1])[2:].zfill(8)
 
 	def get_key(self):
-		"""Returns the encryption key as a decoded UTF-8 string
+		"""Gets the encryption key if there is one.
+
+		:return: the encryption key as a decoded UTF-8 string
 		 if no key is set it will return a string containing *"not encrypted"*
+		:rtype: str
+
 
 		 Example usage::
 
@@ -212,6 +216,9 @@ class ManipulateImage:
 		"""Sets the encryption key to a specific string, note the key must be compatible with Fernet
 		if you are not sure, let the initial encode process generate a key for you on first run
 		and use that going forward if you want to encrypt a lot of files with the same key.
+		This will not raise an error until the key is used by decode() or encode()
+
+		:param str key: the encryption key.
 
 		Example usage::
 
@@ -241,6 +248,9 @@ class ManipulateImage:
 	
 	def get_output_file(self):
 		"""Gets the created output file as a string
+		
+		:return: output file name
+		:rtype: str
 
 		Example usage::
 
@@ -255,6 +265,9 @@ class ManipulateImage:
 	def get_input_file(self):
 		"""Gets the data input file as a string
 
+		:return: input file name
+		:rtype: str
+
 		Example usage::
 
 			>>> from pillowncase import pncase
@@ -267,6 +280,10 @@ class ManipulateImage:
 
 	def get_data_output_file(self):
 		"""Gets the created hidden data file as a string
+
+		:return: extracted hidden data file name
+		:rtype: str
+
 
 		Example usage::
 
@@ -294,6 +311,10 @@ class ManipulateImage:
 
 	def get_magic_header(self):
 		"""Gets the magic header as a string
+
+		:return: magic header
+		:rtype: str
+
 
 		Example usage::
 
@@ -334,23 +355,26 @@ class ManipulateImage:
 	def encode(self,input_file="small_test",image_file="",output_file="pNcase.png",resize_image=True,key=''):
 		"""Store any file in any image as a png file.
 
-		:param input_file: a string with the path to the file you want to hide, there are 3 test scenarios included.
+		:param str input_file: a string with the path to the file you want to hide, there are 4 test scenarios included.
 
 			All examples are royalty free and include licenses as required passing one of the strings below will create
 			example image files of varying sizes.
 
-			*Example*::
+			Example::
 
 				input_file='small_test'
 				input_file='medium_test'
+				nput_file='medium_raw_test'
 				input_file='large_test'
-		:param image_file: a string containing the path to the image file you would like to hide the file in, if no file is passed an empty square image is produced
+				
+
+		:param str image_file: a string containing the path to the image file you would like to hide the file in, if no file is passed an empty square image is produced
 			and just the data is written, this is the most optimal way to store the data but it is not hidden (but looks cool), there are 5 images included as defaults 
 			if you want to use them instead of your own images.
 
 			All included images are created and owned by me and released under the same licensing as this project.
 
-			*Example*::
+			Example::
 
 				image_file='FLOWERS'
 				image_file='HORSE'
@@ -358,15 +382,16 @@ class ManipulateImage:
 				image_file='KITTEN'
 				image_file='KATIE'
 
-		:param output_file: the output image file name, will always be png, if none is passed it defaults to pNcase.png this is the image file with the data hidden in it.
-		:param resize_image: by default is an image is supplied it will be resized up or down to the optimum size to fit the data, if you only have
+		:param str output_file: the output image file name, will always be png, if none is passed it defaults to pNcase.png this is the image file with the data hidden in it.
+		:param bool resize_image: by default is an image is supplied it will be resized up or down to the optimum size to fit the data, if you only have
 			a small amount of data to hide sometimes it will be better to keep the image at it's initial size.  If the data would then exceed this size
 			an error will be thrown.
-		:param key: if you have a key and want to encrypt using it put it here as a string e.g. you want to encode a lot of
-			images with the same key, if it's left blank and you did not set encrypt_data=True in the class initiator it will
+		:param str key: if you have a key and want to encrypt using it put it here as a string e.g. you want to encode a lot of
+			images with the same key, if it's left blank and you did not set *encrypt_data=True* in the class initiator it will
 			not be encrypted.
+		:raises IOError: if it can't read or write any of the files successfully.
 		
-		Example usage::
+		Example usage see :py:func:`~ManipulateImage.decode` for an example using encryption::
 
 			>>> from pillowncase import pncase
 			>>> pnc = pncase.ManipulateImage(verbose=1,granularity=2)
@@ -429,6 +454,8 @@ class ManipulateImage:
 			if len(image_file) == 0:
 				image_file = os.path.join(resource_path, "flowers.jpg")
 
+		elif input_file.upper() == "MEDIUM_RAW_TEST":
+			input_file = os.path.join(resource_path, "pg29809.txt")
 
 
 		if self.encrypt_data:
@@ -824,13 +851,14 @@ class ManipulateImage:
 	def decode(self,image_file,key='',output_file='',magic_header='XYZZY'):
 		"""Store any file in any image as a png file.
 
-		:param image_file: the image file you want to try and decode, needs to be PNG, will error if it can't find any hidden data.
-		:param key: if the file was encrypted supply the key as a text string here
-		:param output_file: this is the output file path, by default the code will extract to the same path as it is run
+		:param str image_file: the image file you want to try and decode, needs to be PNG, will error if it can't find any hidden data.
+		:param str key: if the file was encrypted supply the key as a text string here
+		:param str output_file: this is the output file path, by default the code will extract to the same path as it is run
 			and won't warn if theres an overwrite, if you want to extract somewhere else put the path here.
-		:param magic_header: if the magic header had been changed you need to put it here, default will suffice in most cases.
+		:param str magic_header: if the magic header had been changed you need to put it here, default will suffice in most cases.
+		:raises IOError: if it can't read or write any of the files successfully.
 		
-		Example usage::
+		Example usage see :py:func:`~ManipulateImage.encode` for an example not using encryption::
 			
 			>>> pnc = pncase.ManipulateImage(verbose=1,encrypt_data=True)
 			>>> pnc.encode(input_file='medium_test')
