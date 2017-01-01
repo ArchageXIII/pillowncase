@@ -106,7 +106,7 @@ This is not a GIT setup guide, if you want to properly fork and pull from the GI
 		documents created by sphinx and and manual documentation pages, configured only to include functions that have doc strings and will automatically take the version number from the installed pillowncase package.
 	
 	- docs/conf.py
-		sphinx setup file and also where it automatically gets current release version.
+		sphinx setup file aneed to update release number here to match setup.py
 
 	- docs/index.rst
 		root index file that the docs get built off.
