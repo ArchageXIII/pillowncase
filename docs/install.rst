@@ -4,6 +4,8 @@ Installation
 
 **pillowncase** has been written in Python 3.5 and tested on Windows 10 and Ubuntu 16.04 LTS.
 
+.. _install_ubuntu:
+
 -----------------------------
 Installation Ubuntu 16.04 LTS
 -----------------------------
