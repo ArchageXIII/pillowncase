@@ -179,7 +179,7 @@ General GIT commands (after initial creation of a repository on GIT website)
 		git checkout -b develop         -- create new branch
 		git push -u origin develop      -- push that branch back to GIT website
 		git clone <url>                 -- clone a git repository will defeult to master active branch
-		git merge development           -- if i'm in master and want to bring in my dev environment
+		git merge develop               -- if i'm in master and want to bring in my dev environment
 		git pull origin master          -- if i just want to brin my develop environment to reflect master
 		git merge master                -- if i'm in master and want to bring in my dev environment
 
