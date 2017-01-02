@@ -46,4 +46,4 @@ After that I'm going to have a go at doing a GUI.
 
 have a look through the rest of the documentation and code and feel free to fork it.
 
-:doc:`to-do`
+:ref:`to-do`
