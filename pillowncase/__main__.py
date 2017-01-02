@@ -7,7 +7,7 @@ import sys
 import os
 
 def main():
-	"""you can run pillowncase from the command line where it invokes this main function you can run it as `pNcase` but for convenience it is aliased to pNcase when installed.
+	"""you can run pillowncase from the command line where it invokes this main function you can run it as `python -m pillowncase` but for convenience it is aliased to pNcase when installed.
 
 	Example::
 
