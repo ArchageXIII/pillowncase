@@ -39,7 +39,7 @@ class ManipulateImage:
 		::Resizing Image to fit to data
 		::Writing data to Image
 		::Progress: 100%
-		::Image 'pNcase.png'' created and saved
+		::Image 'pNcase.png' created and saved
 		>>> pnc.decode(image_file='pNcase.png')
 		::Decode::
 		::Opened Image-file: pNcase.png
@@ -197,7 +197,7 @@ class ManipulateImage:
 			::Resizing Image to fit to data
 			::Writing data to Image
 			::Progress: 100%
-			::Image 'pNcase.png'' created and saved
+			::Image 'pNcase.png' created and saved
 			
 			***KEEP THIS KEY SAFE YOU CANT DECRYPT WITHOUT IT***
 			
@@ -232,7 +232,7 @@ class ManipulateImage:
 			::Resizing Image to fit to data
 			::Writing data to Image
 			::Progress: 100%
-			::Image 'pNcase.png'' created and saved
+			::Image 'pNcase.png' created and saved
 			
 			***KEEP THIS KEY SAFE YOU CANT DECRYPT WITHOUT IT***
 			
@@ -295,7 +295,7 @@ class ManipulateImage:
 			::Resizing Image to fit to data
 			::Writing data to Image
 			::Progress: 100%
-			::Image 'pNcase.png'' created and saved
+			::Image 'pNcase.png' created and saved
 			>>> pnc.decode(image_file='pNcase.png')
 			::Decode::
 			::Opened Image-file: pNcase.png
@@ -401,7 +401,7 @@ class ManipulateImage:
 			::Resizing Image to fit to data
 			::Writing data to Image
 			::Progress: 100%
-			::Image 'katie_test.png'' created and saved
+			::Image 'katie_test.png' created and saved
 			>>> pnc.decode(image_file='katie_test.png')
 			::Decode::
 			::Opened Image-file: katie_test.png
@@ -828,7 +828,7 @@ class ManipulateImage:
 			im.save(self.output_file, optimize = True)
 			if self.verbose >=1:
 				print("")
-				print("::Image '{0}'' created and saved".format(self.output_file))
+				print("::Image '{0}' created and saved".format(self.output_file))
 			if self.magic_header != 'XYZZY':
 				if self.verbose >=1:
 					print("***YOU SELECTED A CUSTOM MAGIC HEADER KEEP IT SAFE YOU CAN'T DECODE WITHOUT IT***")
@@ -868,7 +868,7 @@ class ManipulateImage:
 			::Resizing Image to fit to data
 			::Writing data to Image
 			::Progress: 100%
-			::Image 'pNcase.png'' created and saved
+			::Image 'pNcase.png' created and saved
 
 			***KEEP THIS KEY SAFE YOU CANT DECRYPT WITHOUT IT***
 

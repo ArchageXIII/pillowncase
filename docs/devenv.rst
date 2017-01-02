@@ -129,7 +129,9 @@ This is not a GIT setup guide, if you want to properly fork and pull from the GI
 		additional non python files to include in distribution package
 
 	- setup,py
-		config file for distribution build
+		config file for distribution build main method is aliased to pNcase here
+		
+		'entry_points': {'console_scripts': ['pNcase = pillowncase.\_\_main__:main']}
 
 	- requirements.txt
 		a pip requirements file that read the docs needs to install this package virtual to auto create this documentation linked to git repository.
@@ -178,6 +180,7 @@ General GIT commands (after initial creation of a repository on GIT website)
 		git push -u origin develop      -- push that branch back to GIT website
 		git clone <url>                 -- clone a git repository will defeult to master active branch
 		git merge development           -- if i'm in master and want to bring in my dev environment
+		git pull origin master          -- if i just want to brin my develop environment to reflect master
 		git merge master                -- if i'm in master and want to bring in my dev environment
 
 	Branching and merging, sensible description for low change small team
@@ -204,3 +207,8 @@ General Sphinx / RST info
 
 		sphinx-apidoc -F -o docs pillowncase
 
+General Links
+
+	Sensible guide on getting all this together to publish on pypi
+
+	`<https://tom-christie.github.io/articles/pypi/>`_.

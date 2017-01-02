@@ -19,49 +19,49 @@ Have a play about with it following the :doc:`install` guide, I've included plen
 
 ::
 
-	python -m pillowncase -f pg29809.zip -gg -o example_one_rgb_gg.png -i katie
+	pNcase -f pg29809.zip -gg -o example_one_rgb_gg.png -i katie
 
-.. image:: _static/example_one_rgb_gg.png
+.. image:: _images/example_one_rgb_gg.png
 
 `Average (last 4 bits used for RGB)`
 
 ::
 
-	python -m pillowncase -f pg29809.zip -gggg -o example_two_rgb_gggg.png -i katie
+	pNcase -f pg29809.zip -gggg -o example_two_rgb_gggg.png -i katie
 
-.. image:: _static/example_two_rgb_gggg.png
+.. image:: _images/example_two_rgb_gggg.png
 
 `Coarse (last 6 bits used for RGB)`
 
 ::
 
-	python -m pillowncase -f pg29809.zip -gggggg -o example_three_rgb_gggggg.png -i katie
+	pNcase -f pg29809.zip -gggggg -o example_three_rgb_gggggg.png -i katie
 
-.. image:: _static/example_three_rgb_gggggg.png
+.. image:: _images/example_three_rgb_gggggg.png
 
 `All (all 8 bits used for RGB)`
 	No point using an image for this one so create a square one to fit the data.
 
 ::
 
-	python -m pillowncase -f pg29809.zip -gggggggg -o example_four_rgb_gggggggg.png
+	pNcase -f pg29809.zip -gggggggg -o example_four_rgb_gggggggg.png
 
-.. image:: _static/example_four_rgb_gggggggg.png
+.. image:: _images/example_four_rgb_gggggggg.png
 
 `Custom including Alpha RGBA with a distribution masking the low end bits 345 RGB and completely using the alpha channel 8`
 
 ::
 
-	python -m pillowncase -f pg29809.zip -j 3458 -o example_five_rgba_3458.png -i katie
+	pNcase -f pg29809.zip -j 3458 -o example_five_rgba_3458.png -i katie
 
-.. image:: _static/example_five_rgba_3458.png
+.. image:: _images/example_five_rgba_3458.png
 
-You if you download these actual images you can extract the zip file (:download:`pg29809.zip <_static/pg29809.zip>`) contained using the following command.
+You if you download these actual images you can extract the zip file (:download:`pg29809.zip <_downloads/pg29809.zip>`) contained using the following command.
 	See :doc:`install` guide for more examples of usage.
 
 ::
 
-	python -m pillowncase -a decode -i example_two_rgb_gggg.png
+	pNcase -a decode -i example_two_rgb_gggg.png
 
 
 

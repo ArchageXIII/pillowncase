@@ -22,17 +22,17 @@ A couple of examples more in the documentation.
 
 ::
 
-	python -m pillowncase -f pg29809.zip -gg -o example_one_rgb_gg.png -i katie
+	pNcase -f pg29809.zip -gg -o example_one_rgb_gg.png -i katie
 
-.. image:: docs/_static/example_one_rgb_gg.png
+.. image:: docs/_images/example_one_rgb_gg.png
 
 `Coarse (last 6 bits used for RGB)`
 
 ::
 
-	python -m pillowncase -f pg29809.zip -gggggg -o example_three_rgb_gggggg.png -i katie
+	pNcase -f pg29809.zip -gggggg -o example_three_rgb_gggggg.png -i katie
 
-.. image:: docs/_static/example_three_rgb_gggggg.png
+.. image:: docs/_images/example_three_rgb_gggggg.png
 
 ----------
 Next Steps
@@ -45,3 +45,5 @@ Next steps are speeding the adding and extracting data up using numpy most likel
 After that I'm going to have a go at doing a GUI.
 
 have a look through the rest of the documentation and code and feel free to fork it.
+
+:doc:`to-do`

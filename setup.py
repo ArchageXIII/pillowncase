@@ -9,7 +9,7 @@ config = {
     'url': 'https://github.com/ArchageXIII/pillowncase',
     'download_url': 'https://github.com/ArchageXIII/pillowncase/blob/master/dist/pillowncase-0.2.tar.gz',
     'author_email': 'mark.3dwards@gmail.com',
-    'version': '0.2',
+    'version': '0.3',
     'licence': 'GNU GPL',
     'install_requires': ['cryptography','pillow'],
     'packages': ['pillowncase'],
@@ -19,6 +19,8 @@ config = {
     'long_description':""" 
         Takes and file type and breaks it into small chunks hiding it in the low end bits of the image
         You can specify what chanels including alpha and how many bits you want to hide in each channel
+
+        Full documentation on the github site
         """,
     'clasifiers':[
         'Development Status :: 4 - Beta',
@@ -31,6 +33,7 @@ config = {
         'Topic :: Desktop Environment',
         'Topic :: Image Processing :: Obfuscation'
                  ],
+    'entry_points': {'console_scripts': ['pNcase = pillowncase.__main__:main']},
     'zip_safe': False
 }
 

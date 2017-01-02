@@ -7,19 +7,19 @@ import sys
 import os
 
 def main():
-	"""you can run pillowncase from the command line where it invokes this main function
+	"""you can run pillowncase from the command line where it invokes this main function you can run it as `pNcase` but for convenience it is aliased to pNcase when installed.
 
 	Example::
 
-		$ python -m pillowncase
+		$ pNcase
 		::encode::
 		::Reading Datafile: pillowncase/pillowncase/files/pNcase_test.txt
 		::Resizing Image to fit to data
 		::Writing data to Image
 		::Progress: 100%
-		::Image 'pNcase_small_test.png'' created and saved
+		::Image 'pNcase_small_test.png' created and saved
 
-		$ python -m pillowncase -a decode -i pNcase_small_test.png
+		$ pNcase -a decode -i pNcase_small_test.png
 		::Decode::
 		::Opened Image-file: pNcase_small_test.png
 		::Reading data from Image
@@ -52,14 +52,14 @@ def main():
 
 		Encrypt and Decrypt::
 
-			$ python -m pillowncase -i kitten -f medium_test -j 2240 --encrypt_data
+			$ pNcase -i kitten -f medium_test -j 2240 --encrypt_data
 			::encode::
 			::Reading Datafile: pillowncase/pillowncase/files/pg29809.txt
 			::Encrypting Data
 			::Resizing Image to fit to data
 			::Writing data to Image
 			::Progress: 100%
-			::Image 'pNcase_medium_test.png'' created and saved
+			::Image 'pNcase_medium_test.png' created and saved
 
 			***KEEP THIS KEY SAFE YOU CANT DECRYPT WITHOUT IT***
 
@@ -70,7 +70,7 @@ def main():
 			::Decrypt Key: PaNmvZ4y3pmOcdDlHak0c393XR5FpIn2SKfZZ0WA52o=
 			::
 
-			$ python -m pillowncase -i pNcase_medium_test.png -k PaNmvZ4y3pmOcdDlHak0c393XR5FpIn2SKfZZ0WA52o= -a decode
+			$ pNcase -i pNcase_medium_test.png -k PaNmvZ4y3pmOcdDlHak0c393XR5FpIn2SKfZZ0WA52o= -a decode
 			::Decode::
 			::Opened Image-file: pNcase_medium_test.png
 			::Reading data from Image
@@ -83,15 +83,15 @@ def main():
 
 		Create raw data image::
 
-			$ python -m pillowncase -f medium_raw_test
+			$ pNcase -f medium_raw_test
 			::encode::
 			::Reading Datafile: pillowncase/pillowncase/files/pg29809.txt
 			::Creating Image to put data in
 			::Writing data to Image
 			::Progress: 100%
-			::Image 'pNcase_medium_raw_test.png'' created and saved
+			::Image 'pNcase_medium_raw_test.png' created and saved
 
-			$ python -m pillowncase -a decode -i pNcase_medium_raw_test.png
+			$ pNcase -a decode -i pNcase_medium_raw_test.png
 			::Decode::
 			::Opened Image-file: pNcase_medium_raw_test.png
 			::Reading data from Image

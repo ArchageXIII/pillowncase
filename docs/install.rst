@@ -78,7 +78,7 @@ Installation Ubuntu 16.04 LTS
 
 			(.env) mark@computername:~/pillowncase$ deactivate
 
-		To save trying *source .env/bin/activate* every time it's easy to alias it in your bash shell, just add the following line to the end of your .bashrc file
+		To save typing *source .env/bin/activate* every time it's easy to alias it in your bash shell, just add the following line to the end of your .bashrc file
 		and next time you start a new terminal you can just type activate (when you are in the virtual environment directory) this is another reason to keep
 		all the virtual environment directory's the same name you can just use activate each time.::
 
@@ -101,19 +101,19 @@ Installation Ubuntu 16.04 LTS
 
 		::
 
-			(.env) $ python -m pillowncase
+			(.env) $ pNcase
 			::encode::
 			::Reading Datafile: /home/mark/pncase/.env/lib/python3.5/site-packages/pillowncase/files/pNcase_test.txt
 			::Resizing Image to fit to data
 			::Writing data to Image
 			::Progress: 100%
-			::Image 'pNcase_small_test.png'' created and saved
+			::Image 'pNcase_small_test.png' created and saved
 
 		Now get the hidden data out a test file called pNcase_test.txt
 
 		::
 
-			(.enc) $ python -m pillowncase -a decode -i pNcase_small_test.png
+			(.enc) $ pNcase -a decode -i pNcase_small_test.png
 			::Decode::
 			::Opened Imagefile: pNcase_small_test.png
 			::Reading data from Image
@@ -201,19 +201,19 @@ Installation Windows 10
 
 		::
 
-			(.env) PS C:\Users\mark3\pillowncase> python -m pillowncase
+			(.env) PS C:\Users\mark3\pillowncase> pNcase
 			::encode::
 			::Reading Datafile: /home/mark/pncase/.env/lib/python3.5/site-packages/pillowncase/files/pNcase_test.txt
 			::Resizing Image to fit to data
 			::Writing data to Image
 			::Progress: 100%
-			::Image 'pNcase_small_test.png'' created and saved
+			::Image 'pNcase_small_test.png' created and saved
 
 		Now get the hidden data out a test file called pNcase_test.txt
 
 		::
 
-			(.enc) PS C:\Users\mark3\pillowncase> python -m pillowncase -a decode -i pNcase_small_test.png
+			(.enc) PS C:\Users\mark3\pillowncase> pNcase -a decode -i pNcase_small_test.png
 			::Decode::
 			::Opened Imagefile: pNcase_small_test.png
 			::Reading data from Image
