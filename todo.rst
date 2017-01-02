@@ -18,12 +18,8 @@ Done
 
 Add entry point to setup.py to allow direct command line usage of main
 
-::
+	::
 
-	entry_points={
-	       'console_scripts': [
-	           'vfclust = vfclust.vfclust:main',
-	       ],
-	    }
+		'entry_points': {'console_scripts': ['pNcase = pillowncase.\_\_main__:main']}
 
 Remove double quite from one of the console output strings
