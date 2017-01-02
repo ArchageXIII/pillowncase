@@ -26,8 +26,6 @@ A couple of examples more in the documentation.
 
 .. image:: docs/_static/example_one_rgb_gg.png
 
-`Average (last 4 bits used for RGB)`
-
 `Coarse (last 6 bits used for RGB)`
 
 ::
