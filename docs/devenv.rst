@@ -176,6 +176,9 @@ General GIT commands (after initial creation of a repository on GIT website)
 		git branch -a                   -- what branches do I have and which one am I in
 		git checkout -b develop         -- create new branch
 		git push -u origin develop      -- push that branch back to GIT website
+		git clone <url>                 -- clone a git repository will defeult to master active branch
+		git merge development           -- if i'm in master and want to bring in my dev environment
+		git merge master                -- if i'm in master and want to bring in my dev environment
 
 	Branching and merging, sensible description for low change small team
 
