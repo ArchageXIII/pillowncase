@@ -19,7 +19,7 @@ Installation Ubuntu 16.04 LTS
 
 		::
 		
-		$ mkdir pillowncase
+			$ mkdir pillowncase
 
 	2. pillowncase has two dependencies 'pillow' and 'cryptography'.
 		
@@ -33,56 +33,68 @@ Installation Ubuntu 16.04 LTS
 
 		::
 
-		$ sudo apt-get install python-virtualenv
+			$ sudo apt-get install python-virtualenv
 
 	4. Make sure you are in the directory you created, in this case pillowncase and create an environment.
 
 		All the code is doing is saying copy the relevant parts from the python install located at */usr/bin/python3.5* and put them in a new sub folder of pillowncase called .env.
-		If you wanted to create a 2.7 environment for example you could just create a new directory and rerun with */usr/bin/python2.7* and it would copy that.::
+		If you wanted to create a 2.7 environment for example you could just create a new directory and rerun with */usr/bin/python2.7* and it would copy that.
 
-			$ cd pillowncase
-			$ virtualenv -p /usr/bin/python3.5 .env
+			::
+
+				$ cd pillowncase
+				$ virtualenv -p /usr/bin/python3.5 .env
 			
-		Check there is now a hidden directory called .env created.  You can call the directory whatever you like but it's easiest to pick one name and stick with it as you will see in a sec.::
+		Check there is now a hidden directory called .env created.  You can call the directory whatever you like but it's easiest to pick one name and stick with it as you will see in a sec.
 
-			$ ls -lart
-			drwxr-xr-x 27 mark mark 4096 Dec 31 19:09 ..
-			drwxrwxr-x  3 mark mark 4096 Dec 31 19:33 .
-			drwxrwxr-x  6 mark mark 4096 Dec 31 19:33 .env
+			::
+
+				$ ls -lart
+				drwxr-xr-x 27 mark mark 4096 Dec 31 19:09 ..
+				drwxrwxr-x  3 mark mark 4096 Dec 31 19:33 .
+				drwxrwxr-x  6 mark mark 4096 Dec 31 19:33 .env
 
 
 		Now start the virtual environment, this just makes sure that your path is updated so the relevant python commands default to your virtual environment.  Assuming your Ubuntu python path is set at it's default you can see this working.
 
-		Just run python with out doing anything to test default system install note it.s 2.7.::
+		Just run python with out doing anything to test default system install note it.s 2.7.
 
-			$ python
-			Python 2.7.12 (default, Nov 19 2016, 06:48:10) 
-			[GCC 5.4.0 20160609] on linux2
-			Type "help", "copyright", "credits" or "license" for more information.
-			>>> quit()
+			::
+
+				$ python
+				Python 2.7.12 (default, Nov 19 2016, 06:48:10) 
+				[GCC 5.4.0 20160609] on linux2
+				Type "help", "copyright", "credits" or "license" for more information.
+				>>> quit()
 
 		Now activate your virtual environment.
 
 		First note the python version when you run python it's now 3.5
 
-		Second note you now have (.env) at the start of your command prompt to remind you that environment is the one you are in.::
+		Second note you now have (.env) at the start of your command prompt to remind you that environment is the one you are in.
 
-			$ source .env/bin/activate
-			(.env) mark@computername:~/pillowncase$ python
-			Python 3.5.2 (default, Nov 17 2016, 17:05:23) 
-			[GCC 5.4.0 20160609] on linux
-			Type "help", "copyright", "credits" or "license" for more information.
-			>>> quit()
+			::
 
-		To deactivate your virtual environment just type deactivate and you will see the (.env) vanish..::
+				$ source .env/bin/activate
+				(.env) mark@computername:~/pillowncase$ python
+				Python 3.5.2 (default, Nov 17 2016, 17:05:23) 
+				[GCC 5.4.0 20160609] on linux
+				Type "help", "copyright", "credits" or "license" for more information.
+				>>> quit()
 
-			(.env) mark@computername:~/pillowncase$ deactivate
+		To deactivate your virtual environment just type deactivate and you will see the (.env) vanish..
+
+			::
+
+				(.env) mark@computername:~/pillowncase$ deactivate
 
 		To save typing *source .env/bin/activate* every time it's easy to alias it in your bash shell, just add the following line to the end of your .bashrc file
 		and next time you start a new terminal you can just type activate (when you are in the virtual environment directory) this is another reason to keep
-		all the virtual environment directory's the same name you can just use activate each time.::
+		all the virtual environment directory's the same name you can just use activate each time.
 
-			alias activate='source .env/bin/activate'
+			::
+
+				alias activate='source .env/bin/activate'
 
 		.. warning:: Make sure your virtual environment is running check you have a (.env) in front of your command line when installing else you will install into your default python which most likely won't break anything but will soon become cluttered.
 
@@ -156,7 +168,9 @@ Installation Windows 10
 
 	4. Change to your new directory and create a virtual Python environment, all this command is doing is copying the parts it needs from your python install to make a clean virtual environment.
 
-		If you have multiple Python environments installed you can just select the one you want, in my case I'm choosing 3.5, update the path to reflect your install.::
+		If you have multiple Python environments installed you can just select the one you want, in my case I'm choosing 3.5, update the path to reflect your install.
+
+		::
 
 			PS C:\Users\mark> cd .\pillowncase\
 			PS C:\Users\mark\pillowncase> virtualenv -p 'C:\Users\mark\AppData\Local\Programs\Python\Python35\python.exe' .env
@@ -168,7 +182,9 @@ Installation Windows 10
 		Because of windows security it won't let you run scripts by default in powershell even if they are signed so you need to elevate the privileges.
 		Right click on the powershell icon and select run as administrator this will open a new powershell command prompt, now run the following, I selected All
 		but pick the one that you are happy with.  You can read the official explanation on the `virtualenv site <https://virtualenv.pypa.io/en/stable/userguide/>`_.
-		however the recommendation there of using AllSigned did not work for me on windows 10 you only have to do this once but be aware of the implications.::
+		however the recommendation there of using AllSigned did not work for me on windows 10 you only have to do this once but be aware of the implications.
+
+		::
 
 			PS C:\Users\mark\pillowncase> Set-ExecutionPolicy RemoteSigned
 
@@ -180,7 +196,9 @@ Installation Windows 10
 			Type "help", "copyright", "credits" or "license" for more information.
 			>>> quit()
 
-		To quite the environment type deactivate you will see the (.env) vanish.::
+		To quite the environment type deactivate you will see the (.env) vanish.
+
+		::
 
 			(.env) PS C:\Users\mark\pillowncase> deactivate 
 			PS C:\Users\mark\pillowncase>

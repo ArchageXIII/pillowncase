@@ -46,4 +46,8 @@ After that I'm going to have a go at doing a GUI.
 
 have a look through the rest of the documentation and code and feel free to fork it.
 
-.. _todo: TODO
+----------
+to do list
+----------
+
+`to do <todo.rst>`_
