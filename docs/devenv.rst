@@ -108,7 +108,7 @@ This is not a GIT setup guide, if you want to properly fork and pull from the GI
 		documents created by sphinx and and manual documentation pages, configured only to include functions that have doc strings and will automatically take the version number from the installed pillowncase package.
 	
 	- docs/conf.py
-		sphinx setup file aneed to update release number here to match setup.py
+		sphinx setup file you need to update release number here to match setup.py
 
 	- docs/index.rst
 		root index file that the docs get built off.
@@ -130,6 +130,9 @@ This is not a GIT setup guide, if you want to properly fork and pull from the GI
 
 	- setup,py
 		config file for distribution build
+
+	- requirements.txt
+		a pip requirements file that read the docs needs to install this package virtual to auto create this documentation linked to git repository.
 
 	- pillowncase.egg-info/PKG-INFO
 		created after build has run this is the file you would upload to pypi if you were registering your own package.
