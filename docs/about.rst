@@ -4,13 +4,13 @@ About pillowncase
 
 pillowncase is an experiment in hiding data in images, I had some time over the winter break and wanted to try and create a small python project end to end.
 
-----------------
-How does it work
-----------------
+---------------------------
+How does it work high level
+---------------------------
 
-pillowncase takes any source file and then splits it up hiding the data in the low end bits of each pixel.  It takes advantage of the fact that PNG images are lossless, this would not work with JPG.
+pillowncase takes any source file and then splits it up hiding the data in the low end bits of each pixel.  It takes advantage of the fact that PNG images are lossless, this would not work with JPG how I have it structured currently.
 
-You can define how granular you want to break the data up and across which channels (RGBA).  Each pixel can hold a value between 0 and 255 for each channel in the format I'm using.  I am masking off the low end bits and spreading the data across each pixel.  The more bits replaced the less of the original image is left but the smaller the file, the less bits replaced the less you will notice the file has changed.
+You can define how granular you want to break the data up and across which channels (RGBA).  Each pixel can hold a value between 0 and 255 for each channel in the format I'm using.  I am masking off the low end bits and spreading the data across each pixel.  The more bits replaced the less of the original image is left but the smaller the file, the less bits replaced the less you will notice the file has changed. See the :doc:`howitworks` page for an in depth explanation.
 
 Have a play about with it following the :doc:`install` guide, I've included plenty of examples in the code documentation and more below.
 	.. note:: See below how as you use more of the pixels to encode the png file trends towards the original hidden file size, when you use all bits in the image it's almost like for like.
@@ -62,7 +62,6 @@ You if you download these actual images you can extract the zip file (:download:
 ::
 
 	pNcase -a decode -i example_two_rgb_gggg.png
-
 
 
 ----------

@@ -47,7 +47,7 @@ Installation Ubuntu 16.04 LTS
 			
 		Check there is now a hidden directory called .env created.  You can call the directory whatever you like but it's easiest to pick one name and stick with it as you will see in a sec.
 
-			::
+			.. code-block:: none
 
 				$ ls -lart
 				drwxr-xr-x 27 mark mark 4096 Dec 31 19:09 ..

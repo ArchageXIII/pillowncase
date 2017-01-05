@@ -11,6 +11,7 @@ Welcome to pillowncase's documentation!
    :caption: Contents:
 
    about
+   howitworks
    install
    devenv
    pillowncase
