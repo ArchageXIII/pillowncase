@@ -6,6 +6,8 @@
 Welcome to pillowncase's documentation!
 =======================================
 
+.. image:: _images/pncase_logo_s.png
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
